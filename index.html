@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>Hangman</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h4 class="card-header">Hangman</h4>
+        <div class="card-body">
+          <div class="form-group">
+           <input type="text" id="word-input" class="form-control"
+              placeholder="Enter the word here">
+          </div>
+          <button class="btn btn-primary mt-2" 
+          onclick="generateWord()">Generate word</button>
+          <h1 id="message-word" class="mt-3"></h1>
+          <h5 id ="lives"></h5>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-group">
+             <input type="text" id="letter-input" maxlength ="1" class="form-control"
+                placeholder="Enter the letter here">
+            </div>
+            <button id="letter-button" class="btn btn-primary mt-1" 
+            onclick="guessLetter()">Letter</button>
+            <h5 id="message-letter" class="mt-1"></h5>
+            <br>
+            <h5 id="wrong-letters"></h5>
+          </div>
+        </div>
+      </div>
+    <script src="script.js"></script>
+  </body>
+</html>
