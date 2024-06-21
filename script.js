@@ -17,6 +17,8 @@ function generateWord () {
     document.getElementById("message-word").textContent = hiddenWord.join(' ');
     document.getElementById("letter-input").disabled = false;
     document.getElementById("letter-button").disabled = false;
+    document.getElementById("letter-button").hidden = false;
+    document.getElementById("letter-input").hidden = false;
     document.getElementById("message-letter").textContent = "";
     document.getElementById("wrong-letters").textContent = "";
     document.getElementById("lives").textContent = "Lives left: " + lives;
@@ -29,8 +31,13 @@ function guessLetter() {
     if (letter.length !== 1 || !/^[a-z]$/.test(letter)) {
         document.getElementById("message-letter").textContent = "Please enter a valid letter";
         return;
+    } else {
+        checkLetter(letter);
+        checkWin();
     }
+}
 
+function checkLetter(letter) {
     if (word.includes(letter)) {
         for (let i = 0; i < word.length; ++i) {
             if (word[i] === letter) {
@@ -40,13 +47,19 @@ function guessLetter() {
             }  
         }
     } else {
-        --lives;
         wrongLetters += letter + ", ";
-        document.getElementById("lives").textContent = "Lives left: " + lives;
+        livesLeft()
         document.getElementById("message-letter").textContent = "The letter is not in the word.";
         document.getElementById("wrong-letters").textContent = "Wrong letters: " + wrongLetters;
     }
+}
 
+function livesLeft() {
+    --lives;
+    document.getElementById("lives").textContent = "Lives left: " + lives;    
+}
+
+function checkWin() {
     if (!hiddenWord.includes("_")) {
         document.getElementById("message-letter").textContent = "Congratulations! You won!";
         document.getElementById("letter-input").disabled = true;
