@@ -31,10 +31,9 @@ function guessLetter() {
     if (letter.length !== 1 || !/^[a-z]$/.test(letter)) {
         document.getElementById("message-letter").textContent = "Please enter a valid letter";
         return;
-    } else {
-        checkLetter(letter);
-        checkWin();
     }
+    checkLetter(letter);
+    checkWin();
 }
 
 function checkLetter(letter) {
